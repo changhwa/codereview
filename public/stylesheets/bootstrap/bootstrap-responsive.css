@@ -1078,6 +1078,10 @@
     padding-right: 10px;
     padding-left: 10px;
   }
+
+  .main-container-margin {
+    margin: 100px 100px;
+  }
 }
 
 @media (min-width: 980px) {
@@ -1085,4 +1089,11 @@
     height: auto !important;
     overflow: visible !important;
   }
+    .main-container-margin {
+        margin: 100px 100px;
+    }
 }
+
+
+
+
