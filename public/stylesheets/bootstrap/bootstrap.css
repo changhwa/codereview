@@ -2793,6 +2793,12 @@ table th[class*="span"],
           background-clip: padding-box;
 }
 
+.dropdown-menu.top-noti{
+    min-width: 300px;
+    max-height: 200px;
+    overflow: auto;
+}
+
 .dropdown-menu.pull-right {
   right: 0;
   left: auto;
