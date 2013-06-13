@@ -1082,6 +1082,10 @@
   .main-container-margin {
     margin: 100px 100px;
   }
+
+  .article-contents{
+    margin: 50px 50px;
+  }
 }
 
 @media (min-width: 980px) {
@@ -1091,6 +1095,9 @@
   }
     .main-container-margin {
         margin: 100px 100px;
+    }
+    .article-contents{
+        margin: 50px 50px;
     }
 }
 
