@@ -4,6 +4,7 @@ import models.User;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
+import views.html.user.editform;
 import views.html.user.login;
 import views.html.user.outform;
 import views.html.user.register;
@@ -91,5 +92,45 @@ public class UserApp  extends Controller {
         return redirect(routes.Application.index());
 
     }
+
+    public static Result editUserForm(){
+
+        User user = User.findByUserId(session().get("userId"));
+
+        if(user != null){
+            return ok(editform.render(user));
+        }
+
+        return redirect(routes.Application.index());
+
+    }
+
+    public static Result editUser(){
+        Form<User> userForm = form(User.class).bindFromRequest();
+
+        if(userForm.hasErrors()){
+            flash("message","회원 정보 수정에 실패하였습니다.");
+        }
+
+        User user = new User();
+
+        String email = userForm.data().get("email");
+        String name = userForm.data().get("userName");
+
+        if(email != null && name != null){
+            user.userId = session().get("userId");
+            user.email = email;
+            user.userName = name;
+
+            User.editUser(user);
+            flash("message","회원정보를 수정하였습니다");
+        } else {
+            flash("message","회원 정보 수정에 실패하였습니다.");
+        }
+
+        return redirect(routes.Application.index());
+    }
+
+
 
 }

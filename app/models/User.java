@@ -77,6 +77,11 @@ public class User extends Model {
 
     }
 
+    public static User editUser(User user){
+        user.update();
+        return user;
+    }
+
 
 
 

@@ -1,0 +1,62 @@
+@(user: User)
+
+@main("Edit"){
+    <div class="container main-container-margin">
+        <div class="row-fluid">
+            <div class="span6 offset3">
+                <div class="area">
+                    <form class="form-horizontal" action="@routes.UserApp.editUser()" method="post">
+                        <div class="heading">
+                            <h4 class="form-heading">Edit</h4>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="userName">Name</label>
+                            <div class="controls">
+                                <input type="text" id="userName" name="userName" value="@user.userName" placeholder="E.g. Changhwa Oh">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="email">Email</label>
+                            <div class="controls">
+                                <input type="text" id="email" name="email" value="@user.email" placeholder="E.g. changhwaoh.co@@gmail.com">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="password">Password</label>
+                            <div class="controls">
+                                <input type="password" id="password" name="password" placeholder="Min. 8 Characters">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="confirm">Confirm</label>
+                            <div class="controls">
+                                <input type="password" id="confirm" name="confirm" placeholder="Min. 8 Characters">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="profileImg">ProfileImage</label>
+                            <div class="controls">
+                                <div class="input-prepend input-append">
+                                    <span class="add-on">
+                                        <i class="icon-picture"></i>
+                                    </span>
+                                    <input type="text" id="profileImg" name="profileImg">
+                                    <button class="btn" type="button">Upload</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls">
+                                <label class="checkbox">
+                                    <input type="checkbox"> I agree all your <a href="#">Terms of Services</a>
+                                </label>
+                                <button type="submit" class="btn btn-success">Edit</button>
+                                <button type="button" class="btn">Cancel</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+}
