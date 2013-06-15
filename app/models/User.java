@@ -47,6 +47,17 @@ public class User extends Model {
         return user.userId;
     }
 
+    public static User findByUser(User user){
+
+        User findUser = find.where()
+                .eq("user_id", user.userId)
+                .eq("password", user.password)
+                .eq("status", "Y")
+                .findUnique();
+
+        return findUser;
+    }
+
 
 
 

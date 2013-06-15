@@ -25,6 +25,28 @@ public class UserApp  extends Controller {
         return ok(register.render());
     }
 
+    public static Result login(){
+
+        Form<User> userForm = form(User.class).bindFromRequest();
+
+        if(userForm.hasErrors()){
+            flash("message","로그인에 실패하였습니다.");
+        }
+
+        User loginUser = User.findByUser(userForm.get());
+
+        if(loginUser != null){
+            flash("message","로그인에 성공하였습니다");
+            session("userId",loginUser.userId);
+            session("userName",loginUser.userName);
+            session("email", loginUser.email);
+        } else {
+            flash("message","로그인에 실패하였습니다");
+        }
+
+        return redirect(routes.Application.index());
+    }
+
     public static Result createUser(){
         Form<User> userForm = form(User.class).bindFromRequest();
 

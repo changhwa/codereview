@@ -32,5 +32,25 @@ public class UserTest extends TestHelper {
 
     }
 
+    @Test
+    public void login(){
+
+        //given test2사용자가 가입되어 있음
+        User dummyUser = new User();
+        dummyUser.userId = "test2";
+        dummyUser.password = "test2!";
+        dummyUser.status = "Y";
+
+
+        //when test2 사용자가 로그인을 시도함
+        User loginUser = User.findByUser(dummyUser);
+
+        //then 로그인 결과 유저정보를 받아옴
+        assertThat(loginUser.email).isEqualTo("test2@narratage.com");
+        assertThat(loginUser.userName).isEqualTo("황정민");
+
+
+    }
+
 
 }
