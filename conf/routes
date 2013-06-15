@@ -13,7 +13,8 @@ GET     /assets/*file               controllers.Assets.at(path="/public", file)
 # User
 GET     /user/loginform                 controllers.UserApp.loginForm()
 POST    /user/login                     controllers.UserApp.login()
-GET     /user/signform                  controllers.UserApp.registerForm()
-POST    /user/signup                    controllers.UserApp.createUser()
 GET     /user/logout                    controllers.UserApp.logout()
-
+GET     /user/signform                  controllers.UserApp.registerForm()
+GET     /user/outform                   controllers.UserApp.outForm()
+POST    /user/signup                    controllers.UserApp.createUser()
+POST    /user/signout                   controllers.UserApp.signout()

@@ -5,6 +5,7 @@ import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
 import views.html.user.login;
+import views.html.user.outform;
 import views.html.user.register;
 
 import static play.data.Form.form;
@@ -25,6 +26,10 @@ public class UserApp  extends Controller {
         return ok(register.render());
     }
 
+    public static Result outForm(){
+        return ok(outform.render());
+    }
+
     public static Result login(){
 
         Form<User> userForm = form(User.class).bindFromRequest();
@@ -36,7 +41,7 @@ public class UserApp  extends Controller {
         User loginUser = User.findByUser(userForm.get());
 
         if(loginUser != null){
-            flash("message","로그인에 성공하였습니다");
+            flash("message", "로그인에 성공하였습니다");
             session("userId",loginUser.userId);
             session("userName",loginUser.userName);
             session("email", loginUser.email);
@@ -68,6 +73,23 @@ public class UserApp  extends Controller {
         }
 
         return redirect(routes.Application.index());
+    }
+
+    public static Result signout(){
+
+        Form<User> userForm = form(User.class).bindFromRequest();
+
+        User user = User.findByUserId(userForm.get().userId);
+
+        if(userForm.get().password.equals(user.password)){
+            User.removeUser(user);
+            flash("message","탈퇴하였습니다");
+            return redirect(routes.Application.index());
+        }
+
+        flash("message","다시 확인해주세요");
+        return redirect(routes.Application.index());
+
     }
 
 }

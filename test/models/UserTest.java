@@ -52,5 +52,23 @@ public class UserTest extends TestHelper {
 
     }
 
+    @Test
+    public void removeUser(){
+
+        //given test2사용자가 가입되어 있음.
+        User dummyUser = new User();
+        dummyUser.userId = "test2";
+        dummyUser.password = "test2!";
+        dummyUser.status = "Y";
+
+        //when test2 사용자가 탈퇴를 하려고함
+        User.removeUser(dummyUser);
+
+        //then 탈퇴결과를 확인함
+        User findUser = User.findByUserId(dummyUser.userId);
+        assertThat(findUser.userId).isEqualTo(dummyUser.userId);
+        assertThat(findUser.status).isEqualTo("N");
+    }
+
 
 }

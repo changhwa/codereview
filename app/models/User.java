@@ -58,6 +58,25 @@ public class User extends Model {
         return findUser;
     }
 
+    public static User removeUser(User user){
+
+        user.status = "N";
+        user.update();
+
+        return user;
+
+    }
+
+    public static User findByUserId(String userId){
+
+        User findUser = find.where()
+                .eq("userId", userId)
+                .findUnique();
+
+        return findUser;
+
+    }
+
 
 
 
