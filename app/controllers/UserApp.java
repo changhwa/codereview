@@ -47,6 +47,11 @@ public class UserApp  extends Controller {
         return redirect(routes.Application.index());
     }
 
+    public static Result logout(){
+        session().clear();
+        return redirect(routes.Application.index());
+    }
+
     public static Result createUser(){
         Form<User> userForm = form(User.class).bindFromRequest();
 

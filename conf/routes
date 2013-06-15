@@ -15,4 +15,5 @@ GET     /user/loginform                 controllers.UserApp.loginForm()
 POST    /user/login                     controllers.UserApp.login()
 GET     /user/signform                  controllers.UserApp.registerForm()
 POST    /user/signup                    controllers.UserApp.createUser()
+GET     /user/logout                    controllers.UserApp.logout()
 
