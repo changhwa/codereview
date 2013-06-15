@@ -1,0 +1,12 @@
+# User
+
+user:
+
+    - !!models.User
+        userId:     test2
+        userName:   황정민
+        email:      test2@narratage.com
+        password:   test2!
+        status:     Y
+        grade:      1
+        profileImg:  http://localhost:9000/img/profile/test2.jpg
