@@ -1,9 +1,9 @@
 @main("Register"){
-    <div class="container main-container-margin">
+<div class="container main-container-margin">
     <div class="row-fluid">
         <div class="span6 offset3">
             <div class="area">
-                <form class="form-horizontal" action="@routes.UserApp.createUser()" method="post">
+                <form class="form-horizontal" action="@routes.UserApp.createUser()" method="post" id="signupform">
                     <div class="heading">
                         <h4 class="form-heading">Sign Up</h4>
                     </div>
@@ -63,4 +63,5 @@
         </div>
     </div>
 </div>
+<script src="@routes.Assets.at("javascripts/user/user.validate.js")"></script>
 }

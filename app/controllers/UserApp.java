@@ -1,6 +1,8 @@
 package controllers;
 
 import models.User;
+import play.Logger;
+import play.data.DynamicForm;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -129,6 +131,20 @@ public class UserApp  extends Controller {
         }
 
         return redirect(routes.Application.index());
+    }
+
+    public static Result duplicateId(){
+        String flag = "false";
+
+        DynamicForm requestData = form().bindFromRequest();
+
+        User user = User.findByUserId(requestData.get("userId"));
+
+        if(user==null){
+            flag = "true";
+        }
+
+        return ok(flag);
     }
 
 
