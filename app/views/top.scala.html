@@ -47,7 +47,15 @@
                 </ul>
                 <ul class="nav pull-right">
                     <li class="top_login">
-                        <a href="/user/signform" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Sign"><i class="icon-user icon-2x"></i></a>
+                        @if(session.contains("userId")){
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-user icon-2x"></i></a>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownProfile">
+                                <li><a href="/user/editform">회원정보수정</a></li>
+                                <li><a href="/user/outform">회원탈퇴</a></li>
+                            </ul>
+                        } else {
+                            <a href="/user/signform" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Sign"><i class="icon-user icon-2x"></i></a>
+                        }
                     </li>
                     <li class="top_login">
                         @if(session.contains("userId")){
