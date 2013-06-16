@@ -1,0 +1,28 @@
+
+@main("Login"){
+    <div class="container main-container-margin">
+        <div class="row-fluid">
+            <div class="span6 offset3">
+                <div class="area">
+                    <form class="form-horizontal" action="@routes.UserApp.signout()" method="post">
+                        <div class="heading">
+                            <h4 class="form-heading">회원탈퇴</h4>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="password">Password</label>
+                            <div class="controls">
+                                <input type="password" id="password" name="password" placeholder="Min. 8 Characters">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls" >
+                                <button type="submit" class="btn btn-success" style="margin-right: 10px;">Login</button>
+                                <button type="button" class="btn">Cancel</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+}
