@@ -11,7 +11,9 @@ object ApplicationBuild extends Build {
     // Add your project dependencies here,
     javaCore,
     javaJdbc,
-    javaEbean
+    javaEbean,
+    "org.tmatesoft.svnkit" % "svnkit" % "1.7.8"
+
   )
 
   val main = play.Project(appName, appVersion, appDependencies).settings(
