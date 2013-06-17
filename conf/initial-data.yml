@@ -10,3 +10,14 @@ user:
         status:     Y
         grade:      1
         profileImg:  http://localhost:9000/img/profile/test2.jpg
+
+
+# Project
+
+project:
+    - !!models.Project
+        projectName:            Code Review
+        projectDescription:     코드리뷰시스템 테스트
+        projectVcsUrl:          https://dev.naver.com/svn/codereview
+        projectVcsId:           changhwo
+        projectVcsPw:           test1!

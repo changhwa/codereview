@@ -3,7 +3,6 @@ package support;
 import helper.TestHelper;
 import org.junit.Before;
 import org.junit.Test;
-import org.tmatesoft.svn.core.io.SVNRepository;
 
 import static org.fest.assertions.Assertions.assertThat;
 
@@ -30,8 +29,6 @@ public class SVNSupportTest extends TestHelper{
     @Test
     public void testConnectionStatus(){
         boolean flag = svnSupport.connectionStatus(svnSupport.loadSvnRepo());
-
         assertThat(flag).isEqualTo(true);
-
     }
 }
